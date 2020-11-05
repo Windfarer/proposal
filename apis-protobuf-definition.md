@@ -150,7 +150,7 @@ message HelloReply {
 ```protobuf
 syntax = "proto3";
 
-package kratos.start.ecode;
+package kratos.demo.ecode;
 
 // 多语言特定包名，用于源代码引用
 option go_package = "github.com/go-kratos/kratos/demo/v1;v1";
