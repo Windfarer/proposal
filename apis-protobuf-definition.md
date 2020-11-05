@@ -6,7 +6,7 @@ API接口统一以HTTP/GRPC为基础，并通过Protobuf进行协议定义，包
 
 ## Table of Contents
 * [Directory Structure](#directory-structure)
-* * [Package Name](#package-name)
+* [Package Name](#package-name)
   * [go_package](#go_package)
   * [java_package](#java_package)
   * [objc_class_prefix](#objc_class_prefix)
