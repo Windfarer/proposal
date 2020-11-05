@@ -159,8 +159,8 @@ option java_package = "com.github.kratos.demo.v1";
 option objc_class_prefix = "KratosDemoV1";
 
 enum Errors {
-		AccountOK 						= 0;	 	 // 账号正常
-    AccountBlocked 				= 10001; // 账号已被封禁
+    AccountOK 		  = 0;     // 账号正常
+    AccountBlocked 	  = 10001; // 账号已被封禁
     AccountNameOverLimit  = 10000; // 账号名字超过限制
 }
 ```
