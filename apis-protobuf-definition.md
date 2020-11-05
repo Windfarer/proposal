@@ -5,7 +5,8 @@
 API接口统一以HTTP/GRPC为基础，并通过Protobuf进行协议定义，包括完整的Request/Reply，以及对应的接口错误码（Errors）。
 
 ## Table of Contents
-* [Package Name](#package-name)
+* [Directory Structure](#directory-structure)
+* * [Package Name](#package-name)
   * [go_package](#go_package)
   * [java_package](#java_package)
   * [objc_class_prefix](#objc_class_prefix)
@@ -15,8 +16,33 @@ API接口统一以HTTP/GRPC为基础，并通过Protobuf进行协议定义，包
 * [Comment](#comment)
 * [Examples](#examples)
 
+## Directory Structure
+API接口可以定义到项目，或者在统一仓库中管理Proto，类似googleapis、envoy-api、istio-api；
+
+项目中定义Proto，以api为包名根目录：
+```
+|____kratos-demo
+| |____api
+| | |____kratos
+| | | |____demo
+| | | | |____v1
+| | | | | |____demo.proto
+```
+在统一仓库中管理Proto，以仓库为包名根目录：
+```
+|____project_aaa
+| |____v1
+| | |____aaa.proto
+|____project_bbb
+| |____v1
+| | |____bbb.proto
+|____project_ccc
+| |____v1
+| | |____ccc.proto
+```
+
 ## Package Name
-包名为应用的标识，用于生成gRPC请求路径，或者Proto之间进行引用Message；
+包名为应用的标识（APP_ID），用于生成gRPC请求路径，或者Proto之间进行引用Message；
 
 我们主要分为两种包名：
 *  my.package.v1，为API目录，定义service相关接口，只用于提供业务请求使用
