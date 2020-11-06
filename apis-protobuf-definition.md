@@ -22,7 +22,7 @@ API接口可以定义到项目，或者在统一仓库中管理Proto，类似goo
 项目中定义Proto，以api为包名根目录：
 ```
 |____kratos-demo
-| |____api
+| |____api // 服务API定义
 | | |____kratos
 | | | |____demo
 | | | | |____v1
@@ -30,27 +30,24 @@ API接口可以定义到项目，或者在统一仓库中管理Proto，类似goo
 ```
 在统一仓库中管理Proto，以仓库为包名根目录：
 ```
-|____project_aaa
-| |____v1
-| | |____aaa.proto
-|____project_bbb
-| |____v1
-| | |____bbb.proto
-|____project_ccc
-| |____v1
-| | |____ccc.proto
+|____api // 服务API定义
+| |____kratos
+| | |____demo
+| | | |____v1
+| | | | |____demo.proto
+|____annotations // 注解定义options
+|____third_party // 第三方引用
 ```
 
 ## Package Name
 包名为应用的标识（APP_ID），用于生成gRPC请求路径，或者Proto之间进行引用Message；
 
-我们主要分为两种包名：
-*  my.package.v1，为API目录，定义service相关接口，只用于提供业务请求使用
+*  my.package.v1，为API目录，定义service相关接口，用于提供业务使用
 
 例如：
 ```protobuf
-// gRPC Request URL: /<package_name>.<version>.<service_name>/{method}
-package <app_id>.<version>;
+// RequestURL: /<package_name>.<version>.<service_name>/{method}
+package <package_name>.<version>;
 ```
 ### go_package
 ```protobuf
@@ -80,7 +77,7 @@ option objc_class_prefix = "<PackageNameVersion>";
 ###  目录结构
 包名为小写，并且同目录结构一致，例如：my/package/v1/
 ```protobuf
-package kratos.demo.v1;
+package my.package.v1;
 ```
 
 ### 文件结构
